@@ -1,7 +1,26 @@
-<p>myuser name : {{myuser.name |uppercase}}</p>
-<p>myuser email : {{myuser.email}}</p>
+<p>user-details works!</p>
 
-<p> date of birth 
-    {{myuser.dateOfBirth |date :"dd/MM/yyyy"}}</p>
+<form #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
 
-{{myuser | json }}
+    <label>Username :</label>
+    <input type="text"
+        name="username"
+        [(ngModel)]="username" #usernameRef="ngModel"
+         required minlength="3">
+
+    <div *ngIf="usernameRef.errors?.required && !usernameRef.untouched">
+        This field is required</div>
+
+    <div *ngIf="usernameRef.errors?.minlength">
+        Atleast add 3 chars</div>
+
+    <br />
+    <label>email :</label>
+    <!-- <input type="text"
+        name="email"
+        [(ngModel)]="email"
+         #emailRef="ngModel" required> -->
+
+<br/>
+    <button type="submit"> submit form</button>
+</form>

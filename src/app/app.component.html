@@ -1,29 +1,10 @@
-<h1> this is my First angular app </h1>
-
-
-<input type="text" #myInputbox1 
-(keydown)=changeTheTitle(myInputbox1.value) value={{title}}/>
-
-<br/>
-<input type="text" #myInputbox2 
- [value]="title"/>
-
-<!-- <input type="text" [(ngModel)]="title"/> -->
-<br/>
-
-
-<button (click)="changeTheTitle(myInputbox2.value)"> 
-    change the title</button>
 
 <p>
     title is {{title | titlecase}}
 </p>
 
-<button (click)="toggleUser()"> toggle user-details component</button>
 
-<div class="divclass" *ngIf="showUser">
-    <!-- <app-user-details></app-user-details> -->
-    <myuserdetails></myuserdetails>
-    <myuserdetails></myuserdetails>
-    <myuserdetails></myuserdetails>
-</div>
+<router-outlet>
+
+
+</router-outlet>
